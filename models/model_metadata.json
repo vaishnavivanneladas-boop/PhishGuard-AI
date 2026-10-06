@@ -1,0 +1,263 @@
+{
+  "project_name": "PhishGuard AI \u2014 Outsmarting the Next-Generation Cyber Attack",
+  "model_name": "RandomForestClassifier",
+  "dataset_name": "PhiUSIIL_Phishing_URL_Dataset.csv",
+  "dataset_path": "C:\\Users\\vaishu\\Downloads\\PhiUSIIL_Phishing_URL_Dataset.csv",
+  "target_column": "label",
+  "label_mapping": {
+    "0": "phishing",
+    "1": "legitimate"
+  },
+  "feature_source": "URL column extracted with url_features.extract_url_features",
+  "feature_list": [
+    "URLLength",
+    "DomainLength",
+    "IsDomainIP",
+    "CharContinuationRate",
+    "TLDLength",
+    "NoOfSubDomain",
+    "HasObfuscation",
+    "NoOfObfuscatedChar",
+    "ObfuscationRatio",
+    "NoOfLettersInURL",
+    "LetterRatioInURL",
+    "NoOfDegitsInURL",
+    "DegitRatioInURL",
+    "NoOfEqualsInURL",
+    "NoOfQMarkInURL",
+    "NoOfAmpersandInURL",
+    "NoOfOtherSpecialCharsInURL",
+    "SpacialCharRatioInURL",
+    "IsHTTPS"
+  ],
+  "number_of_features": 19,
+  "urls_successfully_processed": 235795,
+  "train_size": 189074,
+  "test_size": 46721,
+  "group_column": "Domain",
+  "validation_method": "GroupShuffleSplit by group column; test_size=0.20",
+  "random_state": 42,
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced_subsample",
+    "criterion": "gini",
+    "max_depth": 20,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 2,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": -1,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "evaluation_metrics": {
+    "Decision Tree": {
+      "Accuracy": 0.9945634725284134,
+      "Precision": 0.9948050020408921,
+      "Recall": 0.9957657021877205,
+      "F1 Score": 0.9952851202851203
+    },
+    "Random Forest": {
+      "Accuracy": 0.9950771601635239,
+      "Precision": 0.9957653876156161,
+      "Recall": 0.9956914162611893,
+      "F1 Score": 0.995728400564594
+    },
+    "Naive Bayes": {
+      "Accuracy": 0.9085207936473962,
+      "Precision": 0.8669280368078282,
+      "Recall": 0.9937971251346432,
+      "F1 Score": 0.9260374485169418
+    },
+    "KNN": {
+      "Accuracy": 0.9920592453072494,
+      "Precision": 0.9920317248536061,
+      "Recall": 0.994205697730565,
+      "F1 Score": 0.9931175215657174
+    }
+  },
+  "confusion_matrices_labels_0_1": {
+    "Decision Tree": [
+      [
+        19658,
+        140
+      ],
+      [
+        114,
+        26809
+      ]
+    ],
+    "Random Forest": [
+      [
+        19684,
+        114
+      ],
+      [
+        116,
+        26807
+      ]
+    ],
+    "Naive Bayes": [
+      [
+        15691,
+        4107
+      ],
+      [
+        167,
+        26756
+      ]
+    ],
+    "KNN": [
+      [
+        19583,
+        215
+      ],
+      [
+        156,
+        26767
+      ]
+    ]
+  },
+  "classification_reports": {
+    "Decision Tree": {
+      "Phishing (0)": {
+        "precision": 0.9942342706858184,
+        "recall": 0.9929285786443075,
+        "f1-score": 0.993580995703816,
+        "support": 19798.0
+      },
+      "Legitimate (1)": {
+        "precision": 0.9948050020408921,
+        "recall": 0.9957657021877205,
+        "f1-score": 0.9952851202851203,
+        "support": 26923.0
+      },
+      "accuracy": 0.9945634725284134,
+      "macro avg": {
+        "precision": 0.9945196363633553,
+        "recall": 0.994347140416014,
+        "f1-score": 0.9944330579944681,
+        "support": 46721.0
+      },
+      "weighted avg": {
+        "precision": 0.9945631549193032,
+        "recall": 0.9945634725284134,
+        "f1-score": 0.9945629983600617,
+        "support": 46721.0
+      }
+    },
+    "Random Forest": {
+      "Phishing (0)": {
+        "precision": 0.9941414141414141,
+        "recall": 0.9942418426103646,
+        "f1-score": 0.9941916258396889,
+        "support": 19798.0
+      },
+      "Legitimate (1)": {
+        "precision": 0.9957653876156161,
+        "recall": 0.9956914162611893,
+        "f1-score": 0.995728400564594,
+        "support": 26923.0
+      },
+      "accuracy": 0.9950771601635239,
+      "macro avg": {
+        "precision": 0.994953400878515,
+        "recall": 0.994966629435777,
+        "f1-score": 0.9949600132021414,
+        "support": 46721.0
+      },
+      "weighted avg": {
+        "precision": 0.9950772296814484,
+        "recall": 0.9950771601635239,
+        "f1-score": 0.9950771930561145,
+        "support": 46721.0
+      }
+    },
+    "Naive Bayes": {
+      "Phishing (0)": {
+        "precision": 0.9894690377096733,
+        "recall": 0.7925548035155067,
+        "f1-score": 0.8801323760376936,
+        "support": 19798.0
+      },
+      "Legitimate (1)": {
+        "precision": 0.8669280368078282,
+        "recall": 0.9937971251346432,
+        "f1-score": 0.9260374485169418,
+        "support": 26923.0
+      },
+      "accuracy": 0.9085207936473962,
+      "macro avg": {
+        "precision": 0.9281985372587507,
+        "recall": 0.893175964325075,
+        "f1-score": 0.9030849122773177,
+        "support": 46721.0
+      },
+      "weighted avg": {
+        "precision": 0.9188547236478942,
+        "recall": 0.9085207936473962,
+        "f1-score": 0.9065851973890945,
+        "support": 46721.0
+      }
+    },
+    "KNN": {
+      "Phishing (0)": {
+        "precision": 0.9920968640761944,
+        "recall": 0.989140317203758,
+        "f1-score": 0.9906163846523509,
+        "support": 19798.0
+      },
+      "Legitimate (1)": {
+        "precision": 0.9920317248536061,
+        "recall": 0.994205697730565,
+        "f1-score": 0.9931175215657174,
+        "support": 26923.0
+      },
+      "accuracy": 0.9920592453072494,
+      "macro avg": {
+        "precision": 0.9920642944649003,
+        "recall": 0.9916730074671615,
+        "f1-score": 0.9918669531090342,
+        "support": 46721.0
+      },
+      "weighted avg": {
+        "precision": 0.9920593275660652,
+        "recall": 0.9920592453072494,
+        "f1-score": 0.9920576660700982,
+        "support": 46721.0
+      }
+    }
+  },
+  "random_forest_metrics": {
+    "Accuracy": 0.9950771601635239,
+    "Precision": 0.9957653876156161,
+    "Recall": 0.9956914162611893,
+    "F1 Score": 0.995728400564594
+  },
+  "baseline_sample_predictions_before_retraining": {
+    "https://www.google.com": {
+      "phishing_probability": 0.9851955304611253,
+      "legitimate_probability": 0.014804469538874584,
+      "prediction": 0
+    },
+    "https://example.com": {
+      "phishing_probability": 0.9916345728286913,
+      "legitimate_probability": 0.008365427171308752,
+      "prediction": 0
+    },
+    "http://secure-login-example.com": {
+      "phishing_probability": 1.0,
+      "legitimate_probability": 0.0,
+      "prediction": 0
+    }
+  },
+  "timestamp_utc": "2026-10-06T15:28:02.582082+00:00"
+}
